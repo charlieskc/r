@@ -1,0 +1,170 @@
+makeVector <- function(x = numeric()) {#
+        m <- NULL#
+        set <- function(y) {#
+                x <<- y#
+                m <<- NULL#
+        }#
+        get <- function() x#
+        setmean <- function(mean) m <<- mean#
+        getmean <- function() m#
+        list(set = set, get = get,#
+             setmean = setmean,#
+             getmean = getmean)#
+}
+set(123)
+makeVector(c(1))
+makeVector(100)
+cachemean <- function(x, ...) {#
+        m <- x$getmean()#
+        if(!is.null(m)) {#
+                message("getting cached data")#
+                return(m)#
+        }#
+        data <- x$get()#
+        m <- mean(data, ...)#
+        x$setmean(m)#
+        m#
+}
+makeVector(100)
+makeVector(100,123,133)
+makeVector(100,123,13c)
+cachemean(123)
+cachemean(123,1223,333)
+cachemean(c(12,3,4))
+a <- makeVector(c(1,2,3,4))
+a$getmean()
+cachemean(a)
+a$getmean()
+a$set(c(10,20,30,40))
+a$get()
+a$getmean()
+cachemean(a)
+a$getmean()
+makeCacheMatrix <- function(x = matrix()) {#
+    i <- NULL#
+    set <- function(y) {#
+        x <<- y#
+        i <<- NULL#
+    }#
+    get <- function() x#
+    setinverse <- function(inverse) i <<- inverse#
+    getinverse <- function() i#
+    list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)#
+}#
+#
+cacheSolve <- function(x, ...) {#
+    i <- x$getinverse()#
+    if(!is.null(i)) {#
+        message("getting cached data.")#
+        return(i)#
+    }#
+    data <- x$get()#
+    i <- solve(data)#
+    x$setinverse(i)#
+    i#
+}
+pwd
+pwd()
+ls()
+library(datasets)
+data(iris)
+?iris
+Sepal.Length
+?iris
+iris
+mean
+mean (lapplyc)
+lapply
+?lapply
+iris[Sepal.Length]
+lapply(iris,mean)
+apply(iris[, 1:4], 2, mean)
+owMeans(iris[, 1:4])
+rowMeans(iris[, 1:4])
+apply(iris[, 1:4], 1, mean)
+apply(iris, 1, mean)
+is.vector
+is.vector( apply(iris[, 1:4], 2, mean)#
+)
+apply(iris[, 1:4], 1, mean)
+is.vector(apply(iris[, 1:4], 1, mean)#
+)
+apply(iris[, 1:4], 2, mean)
+data(mtcars)
+lapply(mtcars, mean)
+tapply(mtcars$mpg, mtcars$cyl, mean)
+split(mtcars, mtcars$cyl)
+lapply(mtcars, mean)
+tapply(mtcars$mpg, mtcars$cyl, mean)
+debug(ls)
+ls
+ls()
+lapply
+lapply(mtcars, mean)
+lapply(mtcars, mean)$mpg
+mtcars
+lapply(mtcars$cyl[=4], mean)$mpg
+lapply(mtcars$cyl[cyl=4], mean)$mpg
+lapply(mtcars$cyl[mtcars$cyl=4], mean)$mpg
+mtcar[mtcar$cyl == 4]
+mtcars[mtcars$cyl == 4]
+mtcars[mtcars$cyl == '4']
+mtcars
+mtcars$cyl
+mtcars$cyl[]
+mtcars$cyl[4]
+mtcars$cyl[>4]
+mtcars[mtcars]]
+mtcars[mtcars$cyl]
+mtcars[]
+mtcars
+mtcars[$cyl]
+mtcars[mtcars$cyl == '4']
+mtcars$cyl
+mtcars[1:5]
+mtcars[1:5,]
+mtcars[1:5]
+mtcars[1:2]
+mtcars[ which(mtcars$cyl > 4)]
+mtcars[ which(cyl > 4)]
+mtcars[mtcars$cyl == '4',]
+lapply(mtcars[mtcars$cyl == '4',],mean)
+lapply(mtcars[mtcars$cyl == '4',],mean)[1]
+lapply(mtcars[mtcars$cyl == '4',],mean)$mpg
+lapply(mtcars[mtcars$cyl == '4',],mean)$mpg - lapply(mtcars[mtcars$cyl == '46,],mean)$mpg
+c
+''
+c
+d
+c
+''
+lapply(mtcars[mtcars$cyl == '4',],mean)$mpg - lapply(mtcars[mtcars$cyl == '6',],mean)$mpg
+lapply(mtcars[mtcars$cyl == '4',],mean)$mpg - lapply(mtcars[mtcars$cyl == '8',],mean)$mpg
+abs(lapply(mtcars[mtcars$cyl == '4',],mean)$mpg - lapply(mtcars[mtcars$cyl == '8',],mean)$mpg)
+lapply(iris[iris$Species == 'virginica',] , mean)
+lapply(iris[iris$Species == 'virginica',] , mean)$Sepal.length
+lapply(iris[iris$Species == 'virginica',] , mean)[1]
+lapply(iris[iris$Species == 'virginica'] , mean)[1]
+apply(iris[, 1:4], 1, mean)
+apply(iris[, 1:4], 2, mean)
+abs(lapply(mtcars[mtcars$cyl == '4',],mean)$mpg - lapply(mtcars[mtcars$cyl == '8',],mean)$mpg)
+apply(iris[, 1:4], 2, mean)
+lapply(mtcars[mtcars$cyl == '4',],mean)$mpg
+lapply(mtcars[mtcars$cyl == '8',],mean)$mpg
+mtcars
+lapply(mtcars[mtcars$cyl == '4',],mean)$hp
+lapply(mtcars[mtcars$cyl == '6',],mean)$hp
+abs(lapply(mtcars[mtcars$cyl == '4',],mean)$hp - lapply(mtcars[mtcars$cyl == '8',],mean)$hp)
+abs(lapply(mtcars[mtcars$cyl == '4',],mean)$hp - lapply(mtcars[mtcars$cyl == '8',],mean)$hp)c
+lapply(mtcars[mtcars$cyl == '4',],mean)$hp
+apply(mtcars[mtcars$cyl == '4',],mean)$hp
+lapply(mtcars[mtcars$cyl == '4',],mean)$hp
+apply(mtcars[mtcars$cyl == '4'],mean)$hp
+apply(mtcars[mtcars$cyl == '4'][0],mean)$hp
+ls
+ls()
+load(".RData")
+ls()
+load(".RData")
+ls()
+load('best.R')
