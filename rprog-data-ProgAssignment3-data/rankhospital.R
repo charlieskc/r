@@ -1,5 +1,7 @@
-best <- function(state, outcome) { 
+rankhospital <- function(state, outcome, num = "best") {
+	
 	i=0
+	col=""
 	if(outcome == "heart attack"){
 		i=11
 	}
@@ -26,14 +28,20 @@ best <- function(state, outcome) {
 	##minValue = sapply(df_subset, min)[i]
 	
 
-	minValue = min(df_subset[,i], na.rm=TRUE)
+	##minValue = min(df_subset[,i], na.rm=TRUE)
 	##print(minValue)
 	##df_subset[,i] <- as.numeric(df_subset[,i])
 
-	result <- subset(df_subset, df_subset[i] <= unname(minValue))
+	##result <- subset(df_subset, df_subset[i] <= unname(minValue))
 	##print(result);
-	result[with(result,order(Hospital.Name)), ]
-	##return(result$Hospital.Name)
+	result <- df_subset[with(df_subset,order(df_subset[,i], Hospital.Name)), ]
+	result <- subset(result,!is.na(result[,i]))
+	if(num == "best")
+		result <- result[1,]
+	else if(num == "worst")
+		result <- tail(result,n=1L)
+	else
+		result <- result[num,]
+	return(result$Hospital.Name);
 
-	return(head(result,1)$Hospital.Name)
 }
